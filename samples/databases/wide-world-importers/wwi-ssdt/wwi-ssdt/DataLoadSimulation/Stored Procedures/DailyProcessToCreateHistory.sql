@@ -2,16 +2,16 @@
 CREATE PROCEDURE [DataLoadSimulation].[DailyProcessToCreateHistory]
     @StartDate                           date
   , @EndDate                             date
-  , @AverageNumberOfCustomerOrdersPerDay int = 60
+  , @AverageNumberOfCustomerOrdersPerDay int = 30
   , @SaturdayPercentageOfNormalWorkDay   int
   , @SundayPercentageOfNormalWorkDay     int
   , @UpdateCustomFields                  bit
   , @IsSilentMode                        bit
   , @AreDatesPrinted                     bit
-  , @MinYearlyGrowthPercent              int = 10
-  , @MaxYearlyGrowthPercent              int = 20
-  , @MinSeasonalVariationPercent         int = 30
-  , @MaxSeasonalVariationPercent         int = 50
+  , @MinYearlyGrowthPercent              int = -5
+  , @MaxYearlyGrowthPercent              int = 15
+  , @MinSeasonalVariationPercent         int = -10
+  , @MaxSeasonalVariationPercent         int = 30
   , @MaxDailyVariationPercent            int = 20
 
 AS
@@ -54,8 +54,8 @@ BEGIN
 	DECLARE @MaxSeasonalVariationPercent int = 25
 	DECLARE @MinYearlyGrowthPercent int = 3
 	DECLARE @MaxYearlyGrowthPercent int = 30
-	declare @StartDate date = '20130101'
-	declare @EndDate date = '20180101'
+	declare @StartDate date = '20200101'
+	declare @EndDate date = '20230101'
 	declare @CurrentDateTime datetime2 = @StartDate
 	declare @MaxDailyVariationPercent int = 5
 
@@ -367,7 +367,7 @@ BEGIN
 			EXEC DataLoadSimulation.MakeTemporalChanges @CurrentDateTime, @StartingWhen, @EndOfTime, @IsSilentMode;
 
 		-- Record delivery van temperatures
-			IF @CurrentDateTime >= '20160101'
+			IF @CurrentDateTime >= '20220101'
 			BEGIN
 				IF @IsSilentMode = 0
 				BEGIN
@@ -378,7 +378,7 @@ BEGIN
 			END;
 
 		-- Record cold room temperatures
-			IF @CurrentDateTime >= '20151220'
+			IF @CurrentDateTime >= '20211220'
 			BEGIN
 				IF @IsSilentMode = 0
 				BEGIN

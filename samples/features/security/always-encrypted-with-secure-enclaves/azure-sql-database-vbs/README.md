@@ -128,6 +128,11 @@ Perform the below steps before each demo presentation.
 
    2. Click on **Access Policies**. You should see two access policy entries: one for your identity and one for the web app's identity. These policies grant you permissions necessary to perform key management operations and they grant the web app permissions required to decrypt column encryption keys, protecting the data.
 
+1. Close the browser tab for the key vault. Right-click on the logical server in your resource group and open its **Overview** blade in a new tab.
+   1. Click on **SQL Databases** and select **ContosoHR** database.
+   2. In the left ribbon, click on **Data Encryption** and click in the blade on **Always Encrypted**.
+   3. Confirm that the Secure Enclave is enabled and that the enclave type is **Virtualization based security (VBS)**
+
 1. Switch to SSMS.
    1. In Object Explorer, navigate to the **ContosoHR** database. Then go to **Security** > **Always Encrypted Keys**.
    1. Open the **Column Master Keys** and **Column Encryption Keys** folders. You should see the metadata object, named **CMK1**, for the column master key and the metadata object, named **CEK1**, for the column encryption key.

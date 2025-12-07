@@ -95,7 +95,7 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-    
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 ```
@@ -112,8 +112,11 @@ The following YAML code snippet sets up the SQL Server service.
 
 ```
 jobs:
+
   windows-auth-tsqlt:
-    name: Installting tSQLt with SQL Auth
+
+    name: Installting tSQLt framework with SQL Auth and running unit tests
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
@@ -153,7 +156,7 @@ The snippet of YAML code used for the installation of the tSQLt framework in the
 
 ```
 steps:
-  - uses: actions/checkout@v2
+  - uses: actions/checkout@v3.5.2
   - name: Install tSQLt with SQL auth on AdventureWorks2017
     uses: lowlydba/tsqlt-installer@v1
     with:
@@ -177,8 +180,9 @@ Triggers and stored procedures are created in the AdventureWorks database attach
 ```
 - name: Create sp usp_Raiserror_SafetyStockLevel
   run: docker exec -i $ENV_CONTAINER_ID /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "3uuiCaKxfbForrK" -d AdventureWorks2017 -b < ./source/usp-raiserror-safetystocklevel.sql
-- name: Create TR_Product_SafetyStockLevel
-  run: docker exec -i $ENV_CONTAINER_ID /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "3uuiCaKxfbForrK" -d AdventureWorks2017 -b < ./source/tr_product_safetystocklevel.sql
+
+- name: Create system under test (SUT) TR_Product_SafetyStockLevel
+  run: docker exec -i $ENV_CONTAINER_ID /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "3uuiCaKxfbForrK" -d AdventureWorks2017 -b < ./source/tr-product-safetystocklevel.sql
 ```
 
 **6. Creation and execution of test units**
@@ -203,10 +207,13 @@ The following snippet of YAML code creates and runs the test units.
 ```
 - name: Create and run test case try to insert one wrong row
   run: docker exec -i $ENV_CONTAINER_ID /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "3uuiCaKxfbForrK" -d AdventureWorks2017 -b < ./unit-test/test-case-try-to-insert-one-wrong-row.sql
+
 - name: Create and run test case try to insert one right row
   run: docker exec -i $ENV_CONTAINER_ID /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "3uuiCaKxfbForrK" -d AdventureWorks2017 -b < ./unit-test/test-case-try-to-insert-one-right-row.sql
+
 - name: Create and run test case try to insert multiple rows
   run: docker exec -i $ENV_CONTAINER_ID /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "3uuiCaKxfbForrK" -d AdventureWorks2017 -b < ./unit-test/test-case-try-to-insert-multiple-rows.sql
+
 - name: Create and run test case try to insert multiple rows ordered
   run: docker exec -i $ENV_CONTAINER_ID /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "3uuiCaKxfbForrK" -d AdventureWorks2017 -b < ./unit-test/test-case-try-to-insert-multiple-rows-ordered.sql
 ```

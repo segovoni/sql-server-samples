@@ -40,7 +40,7 @@ BEGIN
             SET @Latitude = 37.78352 + RAND() * 30;
             SET @Longitude = -122.4169 + RAND() * 40;
 
-            SET @IsCompressed = CASE WHEN @TimeCounter < '20160101' THEN 1 ELSE 0 END;
+            SET @IsCompressed = CASE WHEN @TimeCounter < '20220101' THEN 1 ELSE 0 END;
 
             SET @FullSensorData = N'{"Recordings": '
               + N'['

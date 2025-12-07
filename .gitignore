@@ -444,3 +444,4 @@ samples/features/sql-management-objects/src/out/CodeCoverage/CodeCoverage.config
 
 # Composer
 /vendor/
+/samples/databases/wide-world-importers/wwi-ssdt/wwi-ssdt/WideWorldImporters.publish.xml

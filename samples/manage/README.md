@@ -17,3 +17,6 @@ This Solution Quick Start provides a solution for a Software-as-a-Solution (SaaS
 
 ## Windows Containers
 This includes samples for setting up mssql-server in Windows Containers. Currently it only includes a link to the separately maintained [mssql-docker](https://github.com/Microsoft/mssql-docker/blob/master/windows/README.md) instructions.
+
+## Handling UPDATE STATISTICS on SQL Server PolyBase external tables
+[This sample](https://github.com/microsoft/sql-server-samples/tree/master/samples/manage/polybase/external-table/README.md) describes an option to update statistics on SQL Server PolyBase external tables.

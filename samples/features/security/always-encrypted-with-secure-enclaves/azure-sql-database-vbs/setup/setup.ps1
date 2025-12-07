@@ -1,5 +1,5 @@
-﻿Import-Module "Az" -MinimumVersion "9.3"
-Import-Module "SqlServer" -Version "22.0.49-preview"
+﻿Import-Module "Az"
+Import-Module "SqlServer" 
 
 ######################################################################
 # Prompt the user to enter the values of deployment parameters
@@ -10,9 +10,9 @@ $subscriptionId = Read-Host -Prompt "Enter your subscription id"
 $location = Read-Host -Prompt "Enter a region where you want to deploy the demo environment"
 $sqlAdminUserName = Read-Host -Prompt "Enter the username of the Azure SQL database server administrator for SQL authentication"
 $sqlAdminPasswordSecureString = Read-Host -Prompt "Enter the password of the Azure SQL database server administrator for SQL authentication" -AsSecureString
-
+$Secure_String_Pwd = ConvertTo-SecureString $sqlAdminPasswordSecureString -AsPlainText -Force
 $sqlAdminPassword = (New-Object PSCredential "user",$sqlAdminPasswordSecureString).GetNetworkCredential().Password
-$clientIP = (Invoke-WebRequest ifconfig.me/ip).Content.Trim()
+$clientIP = (Invoke-WebRequest http://ipinfo.io/ip).Content.Trim()
 $bicepFile = "azuredeploy.bicep"
 $projectName = $projectName.ToLower()
 
@@ -42,7 +42,7 @@ New-AzResourceGroupDeployment `
   -userObjectId $userObjectId `
   -userName $userName `
   -sqlAdminUserName $sqlAdminUserName `
-  -sqlAdminPassword $sqlAdminPassword `
+  -sqlAdminPassword $Secure_String_Pwd `
   -clientIP $clientIP
 
 ######################################################################
@@ -105,7 +105,7 @@ $keyName = "CMK"
 $key = Get-AzKeyVaultKey -VaultName $keyVaultName -Name $keyName
 
 # Connect to the database using the SqlServer PowerShell module
-$connStr = "Data Source=tcp:$serverName;Initial Catalog=$databaseName;User ID=$sqlAdminUserName;Password=$sqlAdminPassword"
+$connStr = "Data Source=tcp:$serverName;Initial Catalog=$databaseName;User ID=$sqlAdminUserName;Password=$sqlAdminPasswordSecureString"
 $database = Get-SqlDatabase -ConnectionString $connStr
 
 # Sign in to Azure with your email address using the SqlServer PowerShell module

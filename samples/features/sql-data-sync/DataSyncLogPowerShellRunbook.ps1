@@ -41,7 +41,7 @@ Disable-AzContextAutosave -Scope Process
 # Connect to Azure with system-assigned managed identity
 $AzureContext = (Connect-AzAccount -Identity).context
 # set and store context
-$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContextficateThumbprint $servicePrincipalConnection.CertificateThumbprint
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 
 # Create the function to create the authorization signature
 Function Build-Signature ($customerId, $sharedKey, $date, $contentLength, $method, $contentType, $resource)

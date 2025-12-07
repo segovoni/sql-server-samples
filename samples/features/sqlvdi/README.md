@@ -1,11 +1,6 @@
 # SQLVDI
 This folder contains the latest files and samples required to build a SQL Server VDI based backup/restore application.
 
-### Files available
-1. vdi.h
-2. vdierror.h
-3. vdiguid.h
-
 A new **VDC_Complete** command was added to SQLVDI that indicates SQL Server has completed sending data to the VDI client. Therefore, the VDI client will be able to finish the backup before it sends response to SQL Server.
 
 More details about this improvement in the SQLVDI protocol can be found in [KB3188454: Enhance VDI Protocol with VDC_Complete command in SQL Server] (https://support.microsoft.com/en-us/kb/3188454)

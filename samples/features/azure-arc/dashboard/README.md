@@ -1,7 +1,7 @@
 ![](../media/solutions-microsoft-logo-small.png)
 
-# How to Enable Azure Dashboard for ARC SQL
-This article will show you how to use the [SQL Server Instances.json](SQL%20Server%20Instances.json) file to create a custom dashboard in the [Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards).
+# How to Enable Azure Dashboard for SQL Server enabled by Azure Arc
+This article will show you how to use the dashboard .json files in this directory to create custom dashboards in the [Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards).
 
 ![](./img/Dashboard.png)
 
@@ -14,7 +14,19 @@ This article will show you how to use the [SQL Server Instances.json](SQL%20Serv
 ![](https://learn.microsoft.com/en-us/azure/azure-portal/media/azure-portal-dashboards/create-new-dashboard.png)
 4. If you want to edit the dashboard, please refer to this [link](https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards#edit-a-dashboard).
 
-<a name=disclaimers></a>
+# Dashboard Directory
+ - **Arc - Deployment Progress:** A dashbaord showing the progress of deploying Azure Arc to enable your SQL Server, Windows Server, and Linux servers.
+ - **Arc - ESU:** A dashboard showing the current licensing configuration for Extended Security Updates (ESU) for SQL Server and Windows Server.
+ - **Arc - Estate Profile:** A dashboard showing summary and detailed view of SQL Server, Windows Server, and Linux servers enabled by Azure Arc.
+ - **Arc - SQL Server Inventory:** A dashboard showing detailed stats about SQL Server instances and servers hosting SQL Server.
+ - **SQL Server Instances:** A dashboard focused on SQL Server inventory details about SQL Server instances and databases.
+ - **Arc - Server Deployment:** A dashboard showing a mix of server and SQL Server details, especially useful during initial onboarding and for inventory.
 
+# Acknowledgements
+Many thanks to the following contributors that provided content to this part of the SQL Server samples repository.
+- [Tps99](https://github.com/tps99)
+- [batuhan-yildiz](https://github.com/batuhan-yildiz)
+
+<a name=disclaimers></a>
 ## Disclaimers
-The code included in this sample is not intended to be a set of best practices on how to build scalable enterprise grade applications. This is beyond the scope of this quick start sample.
+The code included in these samples are not intended to be a set of best practices on how to build scalable enterprise grade applications. This is beyond the scope of this quick start sample.

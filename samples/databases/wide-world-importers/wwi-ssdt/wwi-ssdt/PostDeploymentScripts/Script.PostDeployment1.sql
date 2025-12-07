@@ -66,32 +66,32 @@ GO
 -- are optional to load. You can comment these out
 -- without negative effects
 
-:r .\pds150-ins-app-cities-a.sql
-:r .\pds150-ins-app-cities-b.sql
-:r .\pds150-ins-app-cities-c.sql
-:r .\pds150-ins-app-cities-d.sql
-:r .\pds150-ins-app-cities-e.sql
-:r .\pds150-ins-app-cities-f.sql
-:r .\pds150-ins-app-cities-g.sql
-:r .\pds150-ins-app-cities-h.sql
-:r .\pds150-ins-app-cities-i.sql
-:r .\pds150-ins-app-cities-j.sql
-:r .\pds150-ins-app-cities-k.sql
-:r .\pds150-ins-app-cities-l.sql
-:r .\pds150-ins-app-cities-m.sql
-:r .\pds150-ins-app-cities-n.sql
-:r .\pds150-ins-app-cities-o.sql
-:r .\pds150-ins-app-cities-p.sql
-:r .\pds150-ins-app-cities-q.sql
-:r .\pds150-ins-app-cities-r.sql
-:r .\pds150-ins-app-cities-s.sql
-:r .\pds150-ins-app-cities-t.sql
-:r .\pds150-ins-app-cities-u.sql
-:r .\pds150-ins-app-cities-v.sql
-:r .\pds150-ins-app-cities-w.sql
-:r .\pds150-ins-app-cities-x.sql
-:r .\pds150-ins-app-cities-y.sql
-:r .\pds150-ins-app-cities-z.sql
+--:r .\pds150-ins-app-cities-a.sql
+--:r .\pds150-ins-app-cities-b.sql
+--:r .\pds150-ins-app-cities-c.sql
+--:r .\pds150-ins-app-cities-d.sql
+--:r .\pds150-ins-app-cities-e.sql
+--:r .\pds150-ins-app-cities-f.sql
+--:r .\pds150-ins-app-cities-g.sql
+--:r .\pds150-ins-app-cities-h.sql
+--:r .\pds150-ins-app-cities-i.sql
+--:r .\pds150-ins-app-cities-j.sql
+--:r .\pds150-ins-app-cities-k.sql
+--:r .\pds150-ins-app-cities-l.sql
+--:r .\pds150-ins-app-cities-m.sql
+--:r .\pds150-ins-app-cities-n.sql
+--:r .\pds150-ins-app-cities-o.sql
+--:r .\pds150-ins-app-cities-p.sql
+--:r .\pds150-ins-app-cities-q.sql
+--:r .\pds150-ins-app-cities-r.sql
+--:r .\pds150-ins-app-cities-s.sql
+--:r .\pds150-ins-app-cities-t.sql
+--:r .\pds150-ins-app-cities-u.sql
+--:r .\pds150-ins-app-cities-v.sql
+--:r .\pds150-ins-app-cities-w.sql
+--:r .\pds150-ins-app-cities-x.sql
+--:r .\pds150-ins-app-cities-y.sql
+--:r .\pds150-ins-app-cities-z.sql
 
 
 :r .\pds151-ins-post-app-cities.sql
@@ -161,9 +161,9 @@ SET NOCOUNT ON;
                      depricated in future releases.
 */
 EXEC DataLoadSimulation.DailyProcessToCreateHistory
-    @StartDate = '20130101',
-    @EndDate = '20130201',
-    @AverageNumberOfCustomerOrdersPerDay = 60,
+    @StartDate = '20200101',
+    @EndDate = '20200201',
+    @AverageNumberOfCustomerOrdersPerDay = 30,
     @SaturdayPercentageOfNormalWorkDay = 25,
     @SundayPercentageOfNormalWorkDay = 0,
     @UpdateCustomFields = 1,
