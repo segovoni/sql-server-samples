@@ -437,7 +437,7 @@ foreach ($sub in $subscriptions) {
                         foreach ($h in $ext.Setting.Keys) {
                            $settings[$h]=$($ext.Setting[$h])
                         }                        
-                        Set-AzConnectedMachineExtension -Name $setID.Name -ResourceGroupName $setID.ResourceGroup -MachineName $setID.MachineName -Setting $settings -NoWait -ErrorAction SilentlyContinue | Out-Null
+                        Set-AzConnectedMachineExtension -Name $setID.Name -ResourceGroupName $setID.ResourceGroup -Location $setID.Location -MachineName $setID.MachineName -Publisher $setID.Publisher -ExtensionType $setID.ExtensionType -Setting $settings -NoWait # -ErrorAction SilentlyContinue | Out-Null
                         Write-Output "Updated -- Resource group: [$($setID.ResourceGroup)], Connected machine: [$($setID.MachineName)]"
                     } catch {
                         write-Output "The request to modify the extension object failed with the following error:"
