@@ -143,7 +143,7 @@ This option is recommended because Cloud shell has the Azure PowerShell modules 
 1. Upload the script to your cloud shell using the following command:
 
     ```console
-    curl https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/manage/azure-arc-enabled-sql-server/modify-arc-sql-license-type/modify-arc-sql-license-type.ps1 -o modify-arc-sql-license-type.ps1
+    curl https://raw.githubusercontent.com/microsoft/sql-server-samples/refs/heads/master/samples/manage/azure-arc-enabled-sql-server/modify-license-type/modify-arc-sql-license-type.ps1
     ```
 
 1. Run the script by following an appropriate example. 
